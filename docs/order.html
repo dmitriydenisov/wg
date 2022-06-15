@@ -156,14 +156,11 @@
                             <div class="order__subtitle">
                                 Оформление доставки
                             </div>
-                            <div class="order__form-btn">
-                                <input type="checkbox" id="deliver">
-                                    <label for="deliver">доставка</label>
-                                </input>
-                                <input type="checkbox" id="self">
-                                    <label for="self">самовывоз</label>
-                                </input>
+                            <div class="btn-items">
+                                <div class="btn-items__item active" data-variant="Доставка">доставка</div>
+                                <div class="btn-items__item" data-variant="Самовывоз">самовывоз</div>
                             </div>
+                            <div class="tab-сontent-order active" data-variant="Доставка">
                             <div class="order__form-longfield">
                                 <input class="order__form-longfield-input" type="text" placeholder="Улица">
                             </div>
@@ -206,6 +203,51 @@
                                     type="checkbox">
                                 <label class="order__form-checkbox" for="checkbox"> Как можно скорее </label>
                             </div>
+                            </div>
+                            <div class="tab-сontent-order" data-variant="Самовывоз">
+                                <!-- <div class="order__form-longfield">
+                                    <input class="order__form-longfield-input" type="text" placeholder="Улица">
+                                </div>
+                                <div class="order__form-shortfields">
+                                    <div class="order__form-shortfield">
+                                        <input type="text" class="order__form-shortfield-input" placeholder="Дом">
+                                    </div>
+                                    <div class="order__form-shortfield">
+                                        <input type="text" class="order__form-shortfield-input" placeholder="Корпус">
+                                    </div>
+                                    <div class="order__form-shortfield">
+                                        <input type="text" class="order__form-shortfield-input" placeholder="кв/офис">
+                                    </div>
+                                    <div class="order__form-shortfield">
+                                        <input type="text" class="order__form-shortfield-input" placeholder="Этаж">
+                                    </div>
+                                    <div class="order__form-shortfield">
+                                        <input type="text" class="order__form-shortfield-input" placeholder="Подъезд">
+                                    </div>
+                                </div> -->
+                                <div class="order__form-longfield">
+                                    <input class="order__form-longfield-input" type="text"
+                                        placeholder="Комментарий к заказу">
+                                </div>
+                                <div class="order__form-longfield">
+                                    <input class="order__form-longfield-input" type="text" placeholder="Имя получателя">
+                                </div>
+                                <div class="order__form-field">
+                                    <div class="order__form-field-numb">
+                                        <label for="" class="order__form-field-numb-label">Контактный телефон</label>
+                                        <input type="text" class="order__form-field-numb-input" placeholder="+7">
+                                    </div>
+                                    <div class="order__form-field-time">
+                                        <label for="" class="order__form-field-time-label">Время доставки</label>
+                                        <input type="text" class="order__form-field-time-input" placeholder="00:00">
+                                    </div>
+                                </div>
+                                <div class="order__form-check">
+                                    <input class="order__form-checkbox-input" id="checkbox" name="checkbox" value="yes"
+                                        type="checkbox">
+                                    <label class="order__form-checkbox" for="checkbox"> Как можно скорее </label>
+                                </div>
+                                </div>
                         </div>
                         <div class="order__cards">
                             <div class="order__body">

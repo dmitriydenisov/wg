@@ -239,39 +239,6 @@ var swiperStock = new Swiper(".stock__slider", {
     },
   },
 });
-// var swiper = new Swiper(".mySwiper", {
-//   slidesPerView: 4,
-//   spaceBetween: 20,
-//   freeMode: true,
-//   autoplay: {
-//     delay: 3000,
-//   },
-//   breakpoints: {
-//     1264: {
-//       slidesPerView: 4,
-//       spaceBetween: 5,
-//     },
-
-//     884: {
-//       slidesPerView: 3,
-//     },
-//     764: {
-//       slidesPerView: 3.5,
-//     },
-//     500: {
-//       slidesPerView: 3,
-//     },
-//     417: {
-//       slidesPerView: 2.4,
-//     },
-//     320: {
-//       slidesPerView: 2,
-//     },
-//     0: {
-//       slidesPerView: 1.2,
-//     },
-//   },
-// });
 
 var swiper = new Swiper(".deliverySwiper", {
   slidesPerView: 3,
@@ -502,10 +469,16 @@ if (isMobile.any()) {
 }
 
 const menu = document.querySelector(".more--open");
-
+const menuBtn = document.querySelector(".more");
 if (menu) {
   menu.addEventListener("click", function () {
     this.classList.add("open");
+  });
+  document.addEventListener("click", function (e) {
+    const click = e.composedPath().includes(menuBtn);
+    if (!click) {
+      menu.classList.remove("open");
+    }
   });
 }
 
@@ -552,10 +525,12 @@ if (btnMore) {
 }
 
 const inputText = document.querySelector(".text");
-const reg = /[0-9]/g;
-inputText.oninput = function () {
-  this.value = this.value.replace(reg, "");
-};
+if (inputText) {
+  const reg = /[0-9]/g;
+  inputText.oninput = function () {
+    this.value = this.value.replace(reg, "");
+  };
+}
 
 const inputNumbers = document.querySelectorAll(".number");
 
@@ -571,16 +546,21 @@ const popupOrder = document.querySelector(".popup-order");
 const thanksLink = document.querySelector(".popup-thanks-link");
 const thanks = document.querySelector(".popup-thanks");
 
-btnBuy.addEventListener("click", function () {
-  popupOrder.classList.add("open");
-});
+if (btnBuy) {
+  btnBuy.addEventListener("click", function () {
+    popupOrder.classList.add("open");
+  });
+}
+if (thanksLink) {
+  thanksLink.addEventListener("click", function () {
+    thanks.classList.add("open");
+  });
+}
+if (document.querySelector(".datepicker")) {
+  var datepicker = new Datepicker("#datepicker");
 
-thanksLink.addEventListener("click", function () {
-  thanks.classList.add("open");
-});
-
-var datepicker = new Datepicker("#datepicker");
-
+  var datepickerBanket = new Datepicker("#datepickerBanket");
+}
 // const timesInput = document.querySelector("#time");
 const timesInputs = document.querySelectorAll(".timeInput");
 const timesWrapper = document.querySelector(".time");
@@ -600,14 +580,112 @@ for (const timesInput of timesInputs) {
 }
 const timeWrapper1 = document.querySelector(".timeInput1");
 const timeBrone = document.querySelector(".time1");
+if (timeWrapper1) {
+  timeWrapper1.addEventListener("click", function () {
+    timeBrone.classList.add("active");
+  });
 
-timeWrapper1.addEventListener("click", function () {
-  timeBrone.classList.add("active");
-});
+  for (const time of times) {
+    time.addEventListener("click", function () {
+      timeWrapper1.value = time.innerText;
+      timeBrone.classList.remove("active");
+    });
+  }
+  document.addEventListener("click", function (e) {
+    const click = e.composedPath().includes(timeWrapper1);
+    if (!click) {
+      timeBrone.classList.remove("active");
+    }
+  });
+}
+
+const timeWrapper2 = document.querySelector(".timeInput2");
+const timeBrone2 = document.querySelector(".time2");
+if (timeWrapper2) {
+  timeWrapper2.addEventListener("click", function () {
+    timeBrone2.classList.add("active");
+  });
+}
 
 for (const time of times) {
   time.addEventListener("click", function () {
-    timeWrapper1.value = time.innerText;
-    timeBrone.classList.remove("active");
+    timeWrapper2.value = time.innerText;
+    timeBrone2.classList.remove("active");
   });
+
+  document.addEventListener("click", function (e) {
+    const click = e.composedPath().includes(timeWrapper2);
+    if (!click) {
+      timeBrone2.classList.remove("active");
+    }
+  });
+}
+
+const deliveryBtn = document.querySelector(".delivery-btn");
+const deliveryPopup = document.querySelector(".delivery-popup");
+if (deliveryPopup) {
+  deliveryBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    deliveryPopup.classList.add("open");
+  });
+}
+
+const tabOrders = document.querySelectorAll(".btn-items__item");
+const tabContentOrders = document.querySelectorAll(".tab-сontent-order");
+
+for (const tabOrder of tabOrders) {
+  tabOrder.addEventListener("click", activeTabOrder);
+}
+
+function activeTabOrder() {
+  for (const tabOrder of tabOrders) {
+    tabOrder.classList.remove("active");
+  }
+  this.classList.add("active");
+  let tabName = this.getAttribute("data-variant");
+  activeTabContentOrder(tabName);
+}
+
+function activeTabContentOrder(tabName) {
+  for (const tabContentOrder of tabContentOrders) {
+    tabContentOrder.classList.remove("active");
+    if (tabContentOrder.getAttribute("data-variant") === tabName) {
+      tabContentOrder.classList.add("active");
+    }
+  }
+}
+
+const tabNavItems111 = document.querySelectorAll(".menu__header-item");
+const tabContentItems111 = document.querySelectorAll(".menu__items");
+const cards111 = document.querySelector(".delivery-content-cards");
+if (cards) {
+  const tabBtns = cards.querySelectorAll(".delivery-content-card");
+  for (const tabBtn of tabBtns) {
+    tabBtn.addEventListener("click", activeTab);
+  }
+}
+
+for (const tabNavItem of tabNavItems) {
+  tabNavItem.addEventListener("click", activeTab);
+}
+
+function activeTab() {
+  for (const tabNavItem of tabNavItems) {
+    tabNavItem.classList.remove("menu__header-item--active");
+  }
+  if (menu.classList.contains("open")) {
+    menu.classList.remove("open");
+  }
+  this.classList.add("menu__header-item--active");
+  let tabName = this.getAttribute("data-variant");
+  activeTabContent(tabName);
+}
+
+function activeTabContent(tabName) {
+  for (const tabContentItem of tabContentItems) {
+    tabContentItem.classList.remove("menu__items--active");
+    if (tabContentItem.getAttribute("data-variant") === tabName) {
+      tabContentItem.classList.add("menu__items--active");
+    }
+  }
 }
