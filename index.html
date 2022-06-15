@@ -35,7 +35,9 @@
                 <div class="header__item-number">8 (812) 643 04 04</div>
               </div>
               <div class="header__item-button">
-                <a class="header-button" href="./menu.html">Доставка</a>
+                <a class="header-button delivery-btn" href="./menu.html"
+                  >Доставка</a
+                >
               </div>
             </div>
             <div class="header__item">
@@ -61,7 +63,7 @@
                 <div class="header__item-number">8 (965) 010 62 61</div>
               </div>
               <div class="header__item-button">
-                <a class="header-button popup-link" href="#popup-booking"
+                <a class="header-button popup-link" href="#popup-booking-banket"
                   >Забронировать</a
                 >
               </div>
@@ -1068,7 +1070,7 @@
         </div>
       </div>
     </div>
-    <div id="popup" class="popup">
+    <div id="popup" class="delivery-popup popup">
       <div class="popup__body">
         <div class="popup__content">
           <a href="#" class="popup__close close__popup"
@@ -1079,35 +1081,41 @@
             <div class="popup__title">Откуда вам доставить?</div>
             <div class="popup__text-background-bottom"></div>
           </div>
+
           <div class="popup__descr-items">
-            <div class="popup__descr-item _popup_item">
-              <div class="popup__img-ferma">
-                <img src="./img/popup/ferma.svg" alt="" />
+            <a href="./menu.html" class="popup__link">
+              <div class="popup__descr-item _popup_item">
+                <div class="popup__img-ferma">
+                  <img src="./img/popup/ferma.svg" alt="" />
+                </div>
+                <div class="popup__text">
+                  Рестораны FermA - это атмосфера праздника и уюта, это вкусная
+                  еда, при приготовлении которой мы придерживаемся
+                  гастрономической философии, сконцентрированной в девизе
+                  «NATURAL FOOD». Настоящая, привычная еда из <br />лучших
+                  продуктов!
+                </div>
+                <div class="popup__btn">
+                  <a class="popup__button" href="">Выбрать</a>
+                </div>
               </div>
-              <div class="popup__text">
-                Рестораны FermA - это атмосфера праздника и уюта, это вкусная
-                еда, при приготовлении которой мы придерживаемся
-                гастрономической философии, сконцентрированной в девизе «NATURAL
-                FOOD». Настоящая, привычная еда из <br />лучших продуктов!
+            </a>
+            <a href="./menu.html" class="popup__link">
+              <div class="popup__descr-item">
+                <div class="popup__img-hincali">
+                  <img src="./img/popup/hincali.svg" alt="" class="hincali" />
+                </div>
+                <div class="popup__text">
+                  «ДеДа Хинкали» - это уютная обстановка , вкусная еда и
+                  демократичные цены. Собирайтесь большой компанией пить вино,
+                  слушать грузинские песни или просто приходите пообедать, чтобы
+                  на время сбежать от городской суеты!
+                </div>
+                <div class="popup__btn">
+                  <a class="popup__button" href="">Выбрать</a>
+                </div>
               </div>
-              <div class="popup__btn">
-                <a class="popup__button" href="">Выбрать</a>
-              </div>
-            </div>
-            <div class="popup__descr-item">
-              <div class="popup__img-hincali">
-                <img src="./img/popup/hincali.svg" alt="" />
-              </div>
-              <div class="popup__text">
-                «ДеДа Хинкали» - это уютная обстановка , вкусная еда и
-                демократичные цены. Собирайтесь большой компанией пить вино,
-                слушать грузинские песни или просто приходите пообедать, чтобы
-                на время сбежать от городской суеты!
-              </div>
-              <div class="popup__btn">
-                <a class="popup__button" href="">Выбрать</a>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -1166,7 +1174,7 @@
                   <input
                     id="datepicker"
                     type="text"
-                    class="booking__form-shortfield-input number"
+                    class="booking__form-shortfield-input number datepicker"
                     placeholder="01.01"
                   />
                 </div>
@@ -1180,6 +1188,132 @@
                     placeholder="00:00"
                   />
                   <div class="time time1">
+                    <p class="time__title">Время</p>
+                    <div class="time__content">
+                      <span class="time__item">12:00</span>
+                      <span class="time__item">12:30</span>
+                      <span class="time__item">13:00</span>
+                      <span class="time__item">13:30</span>
+                      <span class="time__item">14:00</span>
+                      <span class="time__item">14:30</span>
+                      <span class="time__item">15:00</span>
+                      <span class="time__item">15:30</span>
+                      <span class="time__item">16:00</span>
+                      <span class="time__item">16:30</span>
+                      <span class="time__item">17:00</span>
+                      <span class="time__item">17:30</span>
+                      <span class="time__item">18:00</span>
+                      <span class="time__item">18:30</span>
+                      <span class="time__item">19:00</span>
+                      <span class="time__item">19:30</span>
+                      <span class="time__item">20:00</span>
+                      <span class="time__item">20:30</span>
+                      <span class="time__item">21:00</span>
+                      <span class="time__item">21:30</span>
+                      <span class="time__item">22:00</span>
+                      <span class="time__item">22:30</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="booking__form-longfield-descr">
+                <input
+                  type="text"
+                  class="booking__form-longfield-input"
+                  placeholder="Комментарий (не обязательно)"
+                />
+              </div>
+              <div class="booking__form-check">
+                <input
+                  class="booking__form-checkbox-input"
+                  id="checkbox"
+                  name="checkbox"
+                  value="yes"
+                  type="checkbox"
+                />
+                <label class="booking__form-checkbox" for="checkbox">
+                  Я даю свое согласие на обработку персоанльных данных
+                </label>
+              </div>
+              <div class="header__item-button">
+                <a class="header-button popup-link" href="#popup-booking"
+                  >Отправить</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-booking-banket" class="popup-booking-banket popup">
+      <div class="popup-booking__body popup__body">
+        <div class="popup-booking__content popup__content">
+          <a href="#" class="popup-booking__close close__popup"
+            ><img src="./img/icon/close_popup.svg" alt=""
+          /></a>
+          <div class="popup-booking-title">Бронирование банкета</div>
+          <div class="popup-booking-subtitle">Заказать</div>
+          <div class="popup-booking__inside">
+            <form action="" class="form-popup-booking">
+              <div class="popup-booking-block">
+                <div class="popup-title-booking">Выберите ресторан</div>
+                <select name="" id="">
+                  <option selected class="selected">
+                    Ресторан FermA на Финляндском
+                  </option>
+                  <option>Ресторан FermA на Синопской</option>
+                  <option>ДеДа Хинкали на Литейном</option>
+                  <option>ДеДа Хинкали на Финляндском</option>
+                </select>
+              </div>
+              <div class="booking__form-longfield">
+                <input
+                  class="booking__form-longfield-input text"
+                  type="text"
+                  placeholder="Имя"
+                />
+              </div>
+              <div class="booking__form-shortfields">
+                <div class="popup-subtitle__booking">Кол-во гостей</div>
+                <input
+                  type="number"
+                  class="order__form-shortfield-input"
+                  placeholder=""
+                />
+              </div>
+              <div class="booking-form__area">
+                <div class="booking__form-field-numb">
+                  <label for="" class="booking__form-field-numb-label"
+                    >Контактный телефон</label
+                  >
+                  <input
+                    type="number"
+                    class="booking__form-field-numb-input"
+                    placeholder="+7"
+                  />
+                </div>
+                <div class="booking__form-field-numb">
+                  <label for="" class="booking__form-field-numb-label"
+                    >Дата</label
+                  >
+                  <input
+                    id="datepickerBanket"
+                    type="text"
+                    class="booking__form-shortfield-input number datepickerBanket"
+                    placeholder="01.01"
+                  />
+                </div>
+                <div class="booking__form-field-time time-wrapper" data-time>
+                  <label for="" class="booking__form-field-time-label"
+                    >Время</label
+                  >
+                  <input
+                    type="text"
+                    class="booking__form-field-time-input number timeInput2"
+                    placeholder="00:00"
+                  />
+                  <div class="time time2">
                     <p class="time__title">Время</p>
                     <div class="time__content">
                       <span class="time__item">12:00</span>

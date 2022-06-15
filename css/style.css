@@ -1721,6 +1721,9 @@ font-family: 'Yeseva One', cursive;
 .more--open .menu__header-items {
   display: block;
 }
+.more {
+  cursor: pointer;
+}
 .open {
   display: block;
 }
@@ -1783,6 +1786,7 @@ font-family: 'Yeseva One', cursive;
   font-size: 20px;
   text-transform: uppercase;
   color: #9d9992;
+  width: 35px;
 }
 
 .check__item-price {
@@ -2479,6 +2483,22 @@ font-family: 'Yeseva One', cursive;
   justify-content: space-around;
 }
 
+@media (max-width: 656px) {
+  .order__form {
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .order__form-longfield-input {
+    width: 350px;
+  }
+  .order__form-field-numb-input {
+    width: 177px;
+  }
+  .order__form-shortfield-input {
+    width: 60px;
+  }
+}
 @media (max-width: 1256px) {
   .wrapper__form {
     flex-direction: column;
@@ -3123,7 +3143,7 @@ input[type="checkbox"]:checked + label[for="deliver"] {
 
 .buy {
   position: fixed;
-  top: 70%;
+  top: 60%;
   right: 0;
   width: 95%;
   left: 10px;
@@ -4554,7 +4574,13 @@ select option {
     font-size: 24px;
   }
 }
-
+.popup__link {
+  color: #000;
+}
+.hincali {
+  display: block;
+  margin: 0 auto;
+}
 .datepicker__wrapper {
   padding: 0;
   border: none;
@@ -4562,10 +4588,17 @@ select option {
   width: 372px;
   bottom: auto;
   top: -344px;
+  background: #dddddd;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.32);
+  border-radius: 20px;
 }
 .datepicker__container {
-  background: #dddddd;
+  /* background: #dddddd; */
   padding: 19px;
+}
+.datepicker__day.is-disabled,
+.datepicker__day.is-otherMonth {
+  color: rgba(0, 0, 0, 0.3);
 }
 .datepicker__header {
   background-color: transparent;
@@ -4611,6 +4644,33 @@ select option {
   text-align: center;
   color: #000000;
 }
+.datepicker__day.is-today {
+  color: inherit;
+  border: none;
+}
+.datepicker__day div::after {
+}
+.is-selected .datepicker__daynum {
+  color: #000 !important;
+}
+.datepicker__day.is-selected:hover div::after {
+  background-color: transparent !important;
+}
+.datepicker__daynum {
+  font-size: 20px;
+}
+
+.datepicker__day.is-selected div {
+  background-color: transparent;
+}
+.is-selected:hover {
+  /* background-color: #fff; */
+}
+
+.datepicker__day div:hover,
+.datepicker__day.is-highlighted div {
+  background-color: transparent;
+}
 
 .time {
   visibility: hidden;
@@ -4654,4 +4714,76 @@ select option {
   margin-left: 20px;
   margin-bottom: 50px;
   text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-items {
+  display: flex;
+  justify-content: space-between;
+  width: 554px;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+.btn-items__item {
+  padding: 17px 90px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Yeseva One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  cursor: pointer;
+  background: #fff;
+  color: #a9a9a9;
+}
+.btn-items__item.active {
+  background: #d1d1d1;
+  color: #fff;
+}
+
+.tab-сontent-order {
+  display: none;
+}
+.tab-сontent-order.active {
+  display: block;
+}
+@media (max-width: 500px) {
+}
+@media (max-width: 550px) {
+  .order__body {
+    flex-direction: column;
+  }
+  .order__subdescr {
+    width: 445px;
+  }
+  .order__btn {
+    margin: 0 auto;
+    width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+  }
+  .order__deliver {
+    margin-left: 0;
+  }
+  .order__btn-ready {
+    margin-left: 0;
+    margin-top: 25px;
+  }
+}
+@media (max-width: 656px) {
+  .btn-items__item {
+    padding: 17px 44px;
+  }
+  .btn-items {
+    width: 350px;
+  }
+  .order__title {
+    font-size: 65px;
+  }
 }
